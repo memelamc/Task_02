@@ -405,7 +405,7 @@
     FOCUS: 'focus'
   };
   var Selector$1 = {
-    DATA_TOGGLE_CARROT: '[data-toggle^="button"]',
+    DATA_TOGGLE_UserROT: '[data-toggle^="button"]',
     DATA_TOGGLE: '[data-toggle="buttons"]',
     INPUT: 'input:not([type="hidden"])',
     ACTIVE: '.active',
@@ -514,7 +514,7 @@
    */
 
 
-  $(document).on(Event$1.CLICK_DATA_API, Selector$1.DATA_TOGGLE_CARROT, function (event) {
+  $(document).on(Event$1.CLICK_DATA_API, Selector$1.DATA_TOGGLE_UserROT, function (event) {
     event.preventDefault();
     var button = event.target;
 
@@ -523,7 +523,7 @@
     }
 
     Button._jQueryInterface.call($(button), 'toggle');
-  }).on(Event$1.FOCUS_BLUR_DATA_API, Selector$1.DATA_TOGGLE_CARROT, function (event) {
+  }).on(Event$1.FOCUS_BLUR_DATA_API, Selector$1.DATA_TOGGLE_UserROT, function (event) {
     var button = $(event.target).closest(Selector$1.BUTTON)[0];
     $(button).toggleClass(ClassName$1.FOCUS, /^focus(in)?$/.test(event.type));
   });
@@ -547,9 +547,9 @@
    * ------------------------------------------------------------------------
    */
 
-  var NAME$2 = 'carousel';
+  var NAME$2 = 'Userousel';
   var VERSION$2 = '4.3.1';
-  var DATA_KEY$2 = 'bs.carousel';
+  var DATA_KEY$2 = 'bs.Userousel';
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
   var JQUERY_NO_CONFLICT$2 = $.fn[NAME$2];
@@ -598,25 +598,25 @@
     CLICK_DATA_API: "click" + EVENT_KEY$2 + DATA_API_KEY$2
   };
   var ClassName$2 = {
-    CAROUSEL: 'carousel',
+    UserOUSEL: 'Userousel',
     ACTIVE: 'active',
     SLIDE: 'slide',
-    RIGHT: 'carousel-item-right',
-    LEFT: 'carousel-item-left',
-    NEXT: 'carousel-item-next',
-    PREV: 'carousel-item-prev',
-    ITEM: 'carousel-item',
+    RIGHT: 'Userousel-item-right',
+    LEFT: 'Userousel-item-left',
+    NEXT: 'Userousel-item-next',
+    PREV: 'Userousel-item-prev',
+    ITEM: 'Userousel-item',
     POINTER_EVENT: 'pointer-event'
   };
   var Selector$2 = {
     ACTIVE: '.active',
-    ACTIVE_ITEM: '.active.carousel-item',
-    ITEM: '.carousel-item',
-    ITEM_IMG: '.carousel-item img',
-    NEXT_PREV: '.carousel-item-next, .carousel-item-prev',
-    INDICATORS: '.carousel-indicators',
+    ACTIVE_ITEM: '.active.Userousel-item',
+    ITEM: '.Userousel-item',
+    ITEM_IMG: '.Userousel-item img',
+    NEXT_PREV: '.Userousel-item-next, .Userousel-item-prev',
+    INDICATORS: '.Userousel-indicators',
     DATA_SLIDE: '[data-slide], [data-slide-to]',
-    DATA_RIDE: '[data-ride="carousel"]'
+    DATA_RIDE: '[data-ride="Userousel"]'
   };
   var PointerType = {
     TOUCH: 'touch',
@@ -629,10 +629,10 @@
 
   };
 
-  var Carousel =
+  var Userousel =
   /*#__PURE__*/
   function () {
-    function Carousel(element, config) {
+    function Userousel(element, config) {
       this._items = null;
       this._interval = null;
       this._activeElement = null;
@@ -651,7 +651,7 @@
     } // Getters
 
 
-    var _proto = Carousel.prototype;
+    var _proto = Userousel.prototype;
 
     // Public
     _proto.next = function next() {
@@ -662,7 +662,7 @@
 
     _proto.nextWhenVisible = function nextWhenVisible() {
       // Don't call next when the page isn't visible
-      // or the carousel or its parent isn't visible
+      // or the Userousel or its parent isn't visible
       if (!document.hidden && $(this._element).is(':visible') && $(this._element).css('visibility') !== 'hidden') {
         this.next();
       }
@@ -826,9 +826,9 @@
 
         if (_this3._config.pause === 'hover') {
           // If it's a touch-enabled device, mouseenter/leave are fired as
-          // part of the mouse compatibility events on first tap - the carousel
+          // part of the mouse compatibility events on first tap - the Userousel
           // would stop cycling until user tapped out of it;
-          // here, we listen for touchend, explicitly pause the carousel
+          // here, we listen for touchend, explicitly pause the Userousel
           // (as if it's the second time we tap on it, mouseenter compat event
           // is NOT fired) and after a timeout (to allow for mouse compatibility
           // events to fire) we explicitly restart cycling
@@ -1034,7 +1034,7 @@
     } // Static
     ;
 
-    Carousel._jQueryInterface = function _jQueryInterface(config) {
+    Userousel._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
         var data = $(this).data(DATA_KEY$2);
 
@@ -1047,7 +1047,7 @@
         var action = typeof config === 'string' ? config : _config.slide;
 
         if (!data) {
-          data = new Carousel(this, _config);
+          data = new Userousel(this, _config);
           $(this).data(DATA_KEY$2, data);
         }
 
@@ -1066,7 +1066,7 @@
       });
     };
 
-    Carousel._dataApiClickHandler = function _dataApiClickHandler(event) {
+    Userousel._dataApiClickHandler = function _dataApiClickHandler(event) {
       var selector = Util.getSelectorFromElement(this);
 
       if (!selector) {
@@ -1075,7 +1075,7 @@
 
       var target = $(selector)[0];
 
-      if (!target || !$(target).hasClass(ClassName$2.CAROUSEL)) {
+      if (!target || !$(target).hasClass(ClassName$2.UserOUSEL)) {
         return;
       }
 
@@ -1087,7 +1087,7 @@
         config.interval = false;
       }
 
-      Carousel._jQueryInterface.call($(target), config);
+      Userousel._jQueryInterface.call($(target), config);
 
       if (slideIndex) {
         $(target).data(DATA_KEY$2).to(slideIndex);
@@ -1096,7 +1096,7 @@
       event.preventDefault();
     };
 
-    _createClass(Carousel, null, [{
+    _createClass(Userousel, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$2;
@@ -1108,7 +1108,7 @@
       }
     }]);
 
-    return Carousel;
+    return Userousel;
   }();
   /**
    * ------------------------------------------------------------------------
@@ -1117,14 +1117,14 @@
    */
 
 
-  $(document).on(Event$2.CLICK_DATA_API, Selector$2.DATA_SLIDE, Carousel._dataApiClickHandler);
+  $(document).on(Event$2.CLICK_DATA_API, Selector$2.DATA_SLIDE, Userousel._dataApiClickHandler);
   $(window).on(Event$2.LOAD_DATA_API, function () {
-    var carousels = [].slice.call(document.querySelectorAll(Selector$2.DATA_RIDE));
+    var Userousels = [].slice.call(document.querySelectorAll(Selector$2.DATA_RIDE));
 
-    for (var i = 0, len = carousels.length; i < len; i++) {
-      var $carousel = $(carousels[i]);
+    for (var i = 0, len = Userousels.length; i < len; i++) {
+      var $Userousel = $(Userousels[i]);
 
-      Carousel._jQueryInterface.call($carousel, $carousel.data());
+      Userousel._jQueryInterface.call($Userousel, $Userousel.data());
     }
   });
   /**
@@ -1133,12 +1133,12 @@
    * ------------------------------------------------------------------------
    */
 
-  $.fn[NAME$2] = Carousel._jQueryInterface;
-  $.fn[NAME$2].Constructor = Carousel;
+  $.fn[NAME$2] = Userousel._jQueryInterface;
+  $.fn[NAME$2].Constructor = Userousel;
 
   $.fn[NAME$2].noConflict = function () {
     $.fn[NAME$2] = JQUERY_NO_CONFLICT$2;
-    return Carousel._jQueryInterface;
+    return Userousel._jQueryInterface;
   };
 
   /**
@@ -1627,7 +1627,7 @@
    * @returns {Element} scroll parent
    */
   function getScrollParent(element) {
-    // Return body, `getScroll` will take care to get the correct `scrollTop` from it
+    // Return body, `getScroll` will take Usere to get the correct `scrollTop` from it
     if (!element) {
       return document.body;
     }
@@ -1748,7 +1748,7 @@
       return document.documentElement;
     }
 
-    // Here we make sure to give as "start" the element that comes first in the DOM
+    // Here we Name sure to give as "start" the element that comes first in the DOM
     var order = element1.compareDocumentPosition(element2) & Node.DOCUMENT_POSITION_FOLLOWING;
     var start = order ? element1 : element2;
     var end = order ? element2 : element1;
@@ -1969,7 +1969,7 @@
     var vertScrollbar = element.offsetHeight - height;
 
     // if an hypothetical scrollbar is detected, we must be sure it's not a `border`
-    // we make this check conditional for performance reasons
+    // we Name this check conditional for performance reasons
     if (horizScrollbar || vertScrollbar) {
       var styles = getStyleComputedProperty(element);
       horizScrollbar -= getBordersSize(styles, 'x');
@@ -2382,8 +2382,8 @@
       }
       var fn = modifier['function'] || modifier.fn; // eslint-disable-line dot-notation
       if (modifier.enabled && isFunction(fn)) {
-        // Add properties to offsets to make them a complete clientRect object
-        // we do this before each modifier to make sure the previous one doesn't
+        // Add properties to offsets to Name them a complete clientRect object
+        // we do this before each modifier to Name sure the previous one doesn't
         // mess with these values
         data.offsets.popper = getClientRect(data.offsets.popper);
         data.offsets.reference = getClientRect(data.offsets.reference);
@@ -2663,7 +2663,7 @@
    */
   function applyStyle(data) {
     // any property present in `data.styles` will be applied to the popper,
-    // in this way we can make the 3rd party modifiers add custom styles to it
+    // in this way we can Name the 3rd party modifiers add custom styles to it
     // Be aware, modifiers could override the properties defined in the previous
     // lines of this modifier!
     setStyles(data.instance.popper, data.styles);
@@ -2799,14 +2799,14 @@
     // automatically use the supported prefixed version if needed
     var prefixedProperty = getSupportedPropertyName('transform');
 
-    // now, let's make a step back and look at this code closely (wtf?)
+    // now, let's Name a step back and look at this code closely (wtf?)
     // If the content of the popper grows once it's been positioned, it
     // may happen that the popper gets misplaced because of the new content
     // overflowing its reference element
     // To avoid this problem, we provide two options (x and y), which allow
     // the consumer to define the offset origin.
     // If we position a popper on top of a reference element, we can set
-    // `x` to `top` to make the popper grow towards its top instead of
+    // `x` to `top` to Name the popper grow towards its top instead of
     // its bottom.
     var left = void 0,
         top = void 0;
@@ -3348,7 +3348,7 @@
 
     // If offsetParent is the reference element, we really want to
     // go one step up and use the next offsetParent as reference to
-    // avoid to make this modifier completely useless and look like broken
+    // avoid to Name this modifier completely useless and look like broken
     if (data.instance.reference === boundariesElement) {
       boundariesElement = getOffsetParent(boundariesElement);
     }
@@ -3508,7 +3508,7 @@
    * Modifier function, each modifier can have a function of this type assigned
    * to its `fn` property.<br />
    * These functions will be called on each update, this means that you must
-   * make sure they are performant enough to avoid performance bottlenecks.
+   * Name sure they are performant enough to avoid performance bottlenecks.
    *
    * @function ModifierFn
    * @argument {dataObject} data - The data object generated by `update` method
@@ -3574,7 +3574,7 @@
      * '10 - 5vh + 3%'
      * '-10px + 5vh, 5px - 6%'
      * ```
-     * > **NB**: If you desire to apply offsets to your poppers in a way that may make them overlap
+     * > **NB**: If you desire to apply offsets to your poppers in a way that may Name them overlap
      * > with their reference element, unfortunately, you will have to disable the `flip` modifier.
      * > You can read more on this at this [issue](https://github.com/FezVrasta/popper.js/issues/373).
      *
@@ -3627,7 +3627,7 @@
       /**
        * @prop {number} padding=5
        * Amount of pixel used to define a minimum distance between the boundaries
-       * and the popper. This makes sure the popper always has a little padding
+       * and the popper. This Names sure the popper always has a little padding
        * between the edges of its container
        */
       padding: 5,
@@ -3640,10 +3640,10 @@
     },
 
     /**
-     * Modifier used to make sure the reference and its popper stay near each other
+     * Modifier used to Name sure the reference and its popper stay near each other
      * without leaving any gap between the two. Especially useful when the arrow is
      * enabled and you want to ensure that it points to its reference element.
-     * It cares only about the first axis. You can still have poppers with margin
+     * It Useres only about the first axis. You can still have poppers with margin
      * between the popper and its reference element.
      * @memberof modifiers
      * @inner
@@ -3658,7 +3658,7 @@
     },
 
     /**
-     * This modifier is used to move the `arrowElement` of the popper to make
+     * This modifier is used to move the `arrowElement` of the popper to Name
      * sure it is positioned between the reference element and its popper element.
      * It will read the outer size of the `arrowElement` node to detect how many
      * pixels of conjunction are needed.
@@ -3718,7 +3718,7 @@
     },
 
     /**
-     * Modifier used to make the popper flow toward the inner of the reference element.
+     * Modifier used to Name the popper flow toward the inner of the reference element.
      * By default, when this modifier is disabled, the popper will be placed outside
      * the reference element.
      * @memberof modifiers
@@ -3801,7 +3801,7 @@
      * you want to integrate Popper.js inside a framework or view library and you
      * want to delegate all the DOM manipulations to it.
      *
-     * Note that if you disable this modifier, you must make sure the popper element
+     * Note that if you disable this modifier, you must Name sure the popper element
      * has its position set to `absolute` before Popper.js can do its work!
      *
      * Just disable this modifier and define your own to achieve the desired effect.
@@ -3946,7 +3946,7 @@
         return requestAnimationFrame(_this.update);
       };
 
-      // make update() debounced, so that it only runs at most once-per-tick
+      // Name update() debounced, so that it only runs at most once-per-tick
       this.update = debounce(this.update.bind(this));
 
       // with {} we create a new object with the options inside it
@@ -3995,7 +3995,7 @@
 
       var eventsEnabled = this.options.eventsEnabled;
       if (eventsEnabled) {
-        // setup event listeners, they will take care of update the position in specific situations
+        // setup event listeners, they will take Usere of update the position in specific situations
         this.enableEventListeners();
       }
 
@@ -6587,7 +6587,7 @@
 
       if (listElement) {
         var itemSelector = listElement.nodeName === 'UL' || listElement.nodeName === 'OL' ? Selector$9.ACTIVE_UL : Selector$9.ACTIVE;
-        previous = $.makeArray($(listElement).find(itemSelector));
+        previous = $.NameArray($(listElement).find(itemSelector));
         previous = previous[previous.length - 1];
       }
 
@@ -6997,7 +6997,7 @@
   exports.Util = Util;
   exports.Alert = Alert;
   exports.Button = Button;
-  exports.Carousel = Carousel;
+  exports.Userousel = Userousel;
   exports.Collapse = Collapse;
   exports.Dropdown = Dropdown;
   exports.Modal = Modal;

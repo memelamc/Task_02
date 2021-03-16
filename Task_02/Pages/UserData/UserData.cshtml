@@ -2,17 +2,25 @@
 @model Task_02.Pages.UserData.UserDataModel
 @{
     ViewData["Title"] = "User Data";
+
+    <h1> User Data</h1>
+
+    <ul id="users-list"></ul>
+
+    @section scripts{
+        <script type="text/javascript">
+            $(function () {
+                $.get('/UserData/').done(function (Users) {
+                    $.each(Users, function (i, Users) {
+                        var item = `<li>
+                                    <strong>${Users.Id} ${Users.Name}</strong>
+                                    (£${Users.Surname})</li>`;
+                        $('#users-list').append(item);
+                    });
+                });
+            });
+        </script>
+    }
 }
 
-<h1> User Data</h1>
 
-<form method="post">
-    <input type="text" asp-for="Users.Id" placeholder="Id"/>
-    <input type="text" asp-for="Users.Name" placeholder="Name"/>
-    <input type="text" asp-for="Users.Surname" placeholder="Surname"/>
-    <input type="text" asp-for="Users.EmailAddress" placeholder="EmailAddress"/>
-    <input type="text" asp-for="Users.Gender" placeholder="Gender"/>
-    <input type="text" asp-for="Users.IpAddress" placeholder="IpAddress"/>
-
-    <button type="submit">Submit</button>
-</form>

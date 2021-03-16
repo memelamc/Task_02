@@ -406,7 +406,7 @@
     FOCUS: 'focus'
   };
   var Selector$1 = {
-    DATA_TOGGLE_CARROT: '[data-toggle^="button"]',
+    DATA_TOGGLE_UserROT: '[data-toggle^="button"]',
     DATA_TOGGLE: '[data-toggle="buttons"]',
     INPUT: 'input:not([type="hidden"])',
     ACTIVE: '.active',
@@ -515,7 +515,7 @@
    */
 
 
-  $(document).on(Event$1.CLICK_DATA_API, Selector$1.DATA_TOGGLE_CARROT, function (event) {
+  $(document).on(Event$1.CLICK_DATA_API, Selector$1.DATA_TOGGLE_UserROT, function (event) {
     event.preventDefault();
     var button = event.target;
 
@@ -524,7 +524,7 @@
     }
 
     Button._jQueryInterface.call($(button), 'toggle');
-  }).on(Event$1.FOCUS_BLUR_DATA_API, Selector$1.DATA_TOGGLE_CARROT, function (event) {
+  }).on(Event$1.FOCUS_BLUR_DATA_API, Selector$1.DATA_TOGGLE_UserROT, function (event) {
     var button = $(event.target).closest(Selector$1.BUTTON)[0];
     $(button).toggleClass(ClassName$1.FOCUS, /^focus(in)?$/.test(event.type));
   });
@@ -548,9 +548,9 @@
    * ------------------------------------------------------------------------
    */
 
-  var NAME$2 = 'carousel';
+  var NAME$2 = 'Userousel';
   var VERSION$2 = '4.3.1';
-  var DATA_KEY$2 = 'bs.carousel';
+  var DATA_KEY$2 = 'bs.Userousel';
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
   var JQUERY_NO_CONFLICT$2 = $.fn[NAME$2];
@@ -599,25 +599,25 @@
     CLICK_DATA_API: "click" + EVENT_KEY$2 + DATA_API_KEY$2
   };
   var ClassName$2 = {
-    CAROUSEL: 'carousel',
+    UserOUSEL: 'Userousel',
     ACTIVE: 'active',
     SLIDE: 'slide',
-    RIGHT: 'carousel-item-right',
-    LEFT: 'carousel-item-left',
-    NEXT: 'carousel-item-next',
-    PREV: 'carousel-item-prev',
-    ITEM: 'carousel-item',
+    RIGHT: 'Userousel-item-right',
+    LEFT: 'Userousel-item-left',
+    NEXT: 'Userousel-item-next',
+    PREV: 'Userousel-item-prev',
+    ITEM: 'Userousel-item',
     POINTER_EVENT: 'pointer-event'
   };
   var Selector$2 = {
     ACTIVE: '.active',
-    ACTIVE_ITEM: '.active.carousel-item',
-    ITEM: '.carousel-item',
-    ITEM_IMG: '.carousel-item img',
-    NEXT_PREV: '.carousel-item-next, .carousel-item-prev',
-    INDICATORS: '.carousel-indicators',
+    ACTIVE_ITEM: '.active.Userousel-item',
+    ITEM: '.Userousel-item',
+    ITEM_IMG: '.Userousel-item img',
+    NEXT_PREV: '.Userousel-item-next, .Userousel-item-prev',
+    INDICATORS: '.Userousel-indicators',
     DATA_SLIDE: '[data-slide], [data-slide-to]',
-    DATA_RIDE: '[data-ride="carousel"]'
+    DATA_RIDE: '[data-ride="Userousel"]'
   };
   var PointerType = {
     TOUCH: 'touch',
@@ -630,10 +630,10 @@
 
   };
 
-  var Carousel =
+  var Userousel =
   /*#__PURE__*/
   function () {
-    function Carousel(element, config) {
+    function Userousel(element, config) {
       this._items = null;
       this._interval = null;
       this._activeElement = null;
@@ -652,7 +652,7 @@
     } // Getters
 
 
-    var _proto = Carousel.prototype;
+    var _proto = Userousel.prototype;
 
     // Public
     _proto.next = function next() {
@@ -663,7 +663,7 @@
 
     _proto.nextWhenVisible = function nextWhenVisible() {
       // Don't call next when the page isn't visible
-      // or the carousel or its parent isn't visible
+      // or the Userousel or its parent isn't visible
       if (!document.hidden && $(this._element).is(':visible') && $(this._element).css('visibility') !== 'hidden') {
         this.next();
       }
@@ -827,9 +827,9 @@
 
         if (_this3._config.pause === 'hover') {
           // If it's a touch-enabled device, mouseenter/leave are fired as
-          // part of the mouse compatibility events on first tap - the carousel
+          // part of the mouse compatibility events on first tap - the Userousel
           // would stop cycling until user tapped out of it;
-          // here, we listen for touchend, explicitly pause the carousel
+          // here, we listen for touchend, explicitly pause the Userousel
           // (as if it's the second time we tap on it, mouseenter compat event
           // is NOT fired) and after a timeout (to allow for mouse compatibility
           // events to fire) we explicitly restart cycling
@@ -1035,7 +1035,7 @@
     } // Static
     ;
 
-    Carousel._jQueryInterface = function _jQueryInterface(config) {
+    Userousel._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
         var data = $(this).data(DATA_KEY$2);
 
@@ -1048,7 +1048,7 @@
         var action = typeof config === 'string' ? config : _config.slide;
 
         if (!data) {
-          data = new Carousel(this, _config);
+          data = new Userousel(this, _config);
           $(this).data(DATA_KEY$2, data);
         }
 
@@ -1067,7 +1067,7 @@
       });
     };
 
-    Carousel._dataApiClickHandler = function _dataApiClickHandler(event) {
+    Userousel._dataApiClickHandler = function _dataApiClickHandler(event) {
       var selector = Util.getSelectorFromElement(this);
 
       if (!selector) {
@@ -1076,7 +1076,7 @@
 
       var target = $(selector)[0];
 
-      if (!target || !$(target).hasClass(ClassName$2.CAROUSEL)) {
+      if (!target || !$(target).hasClass(ClassName$2.UserOUSEL)) {
         return;
       }
 
@@ -1088,7 +1088,7 @@
         config.interval = false;
       }
 
-      Carousel._jQueryInterface.call($(target), config);
+      Userousel._jQueryInterface.call($(target), config);
 
       if (slideIndex) {
         $(target).data(DATA_KEY$2).to(slideIndex);
@@ -1097,7 +1097,7 @@
       event.preventDefault();
     };
 
-    _createClass(Carousel, null, [{
+    _createClass(Userousel, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$2;
@@ -1109,7 +1109,7 @@
       }
     }]);
 
-    return Carousel;
+    return Userousel;
   }();
   /**
    * ------------------------------------------------------------------------
@@ -1118,14 +1118,14 @@
    */
 
 
-  $(document).on(Event$2.CLICK_DATA_API, Selector$2.DATA_SLIDE, Carousel._dataApiClickHandler);
+  $(document).on(Event$2.CLICK_DATA_API, Selector$2.DATA_SLIDE, Userousel._dataApiClickHandler);
   $(window).on(Event$2.LOAD_DATA_API, function () {
-    var carousels = [].slice.call(document.querySelectorAll(Selector$2.DATA_RIDE));
+    var Userousels = [].slice.call(document.querySelectorAll(Selector$2.DATA_RIDE));
 
-    for (var i = 0, len = carousels.length; i < len; i++) {
-      var $carousel = $(carousels[i]);
+    for (var i = 0, len = Userousels.length; i < len; i++) {
+      var $Userousel = $(Userousels[i]);
 
-      Carousel._jQueryInterface.call($carousel, $carousel.data());
+      Userousel._jQueryInterface.call($Userousel, $Userousel.data());
     }
   });
   /**
@@ -1134,12 +1134,12 @@
    * ------------------------------------------------------------------------
    */
 
-  $.fn[NAME$2] = Carousel._jQueryInterface;
-  $.fn[NAME$2].Constructor = Carousel;
+  $.fn[NAME$2] = Userousel._jQueryInterface;
+  $.fn[NAME$2].Constructor = Userousel;
 
   $.fn[NAME$2].noConflict = function () {
     $.fn[NAME$2] = JQUERY_NO_CONFLICT$2;
-    return Carousel._jQueryInterface;
+    return Userousel._jQueryInterface;
   };
 
   /**
@@ -4009,7 +4009,7 @@
 
       if (listElement) {
         var itemSelector = listElement.nodeName === 'UL' || listElement.nodeName === 'OL' ? Selector$9.ACTIVE_UL : Selector$9.ACTIVE;
-        previous = $.makeArray($(listElement).find(itemSelector));
+        previous = $.NameArray($(listElement).find(itemSelector));
         previous = previous[previous.length - 1];
       }
 
@@ -4419,7 +4419,7 @@
   exports.Util = Util;
   exports.Alert = Alert;
   exports.Button = Button;
-  exports.Carousel = Carousel;
+  exports.Userousel = Userousel;
   exports.Collapse = Collapse;
   exports.Dropdown = Dropdown;
   exports.Modal = Modal;

@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Task_02.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexSurname : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<IndexSurname> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexSurname(ILogger<IndexSurname> logger)
         {
             _logger = logger;
         }

@@ -4,26 +4,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Task_02.FileManagerService;
 using Task_02.Models;
 
 namespace Task_02.Pages.UserData
 {
     public class UserDataModel : PageModel
     {
-        [BindProperty]
-        public User Users { get; set; }
-        public void OnGet()
+
+        private readonly IFileManager _fileManager;
+
+        public UserDataModel(IFileManager fileManager)
         {
+            _fileManager = fileManager;
         }
 
-        public IActionResult OnPost()
+        public JsonResult OnGet()
         {
-            if(ModelState.IsValid == false)
-            {
-                return Page();
-            }
-
-            return RedirectToPage("/Index", new { Users.Name });
+            return new JsonResult(_fileManager.ReadAll());
         }
+        
     }
 }

@@ -394,7 +394,7 @@ jQuery.extend( {
 	},
 
 	// results is for internal usage only
-	makeArray: function( arr, results ) {
+	NameArray: function( arr, results ) {
 		var ret = results || [];
 
 		if ( arr != null ) {
@@ -2190,7 +2190,7 @@ Expr = Sizzle.selectors = {
 
 		"selected": function( elem ) {
 
-			// Accessing this property makes selected-by-default
+			// Accessing this property Names selected-by-default
 			// options in Safari work properly
 			if ( elem.parentNode ) {
 				// eslint-disable-next-line no-unused-expressions
@@ -2733,7 +2733,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 			}
 
 			// `i` is now the count of elements visited above, and adding it to `matchedCount`
-			// makes the latter nonnegative.
+			// Names the latter nonnegative.
 			matchedCount += i;
 
 			// Apply set filters to unmatched elements
@@ -2760,7 +2760,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 						}
 					}
 
-					// Discard index placeholder values to get only actual matches
+					// DisUserd index placeholder values to get only actual matches
 					setMatched = condense( setMatched );
 				}
 
@@ -3155,7 +3155,7 @@ var rootjQuery,
 				match = rquickExpr.exec( selector );
 			}
 
-			// Match html or make sure no context is specified for #id
+			// Match html or Name sure no context is specified for #id
 			if ( match && ( match[ 1 ] || !context ) ) {
 
 				// HANDLE: $(html) -> $(array)
@@ -3226,7 +3226,7 @@ var rootjQuery,
 				selector( jQuery );
 		}
 
-		return jQuery.makeArray( selector, this );
+		return jQuery.NameArray( selector, this );
 	};
 
 // Give the init function the jQuery prototype for later instantiation
@@ -3971,7 +3971,7 @@ jQuery.extend( {
 			deferred[ tuple[ 0 ] + "With" ] = list.fireWith;
 		} );
 
-		// Make the deferred a promise
+		// Name the deferred a promise
 		promise.promise( deferred );
 
 		// Call given func if any
@@ -4437,7 +4437,7 @@ function dataAttr( elem, key, data ) {
 				data = getData( data );
 			} catch ( e ) {}
 
-			// Make sure we set the data so it isn't changed later
+			// Name sure we set the data so it isn't changed later
 			dataUser.set( elem, key, data );
 		} else {
 			data = undefined;
@@ -4565,7 +4565,7 @@ jQuery.extend( {
 			// Speed up dequeue by getting out quickly if this is just a lookup
 			if ( data ) {
 				if ( !queue || Array.isArray( data ) ) {
-					queue = dataPriv.access( elem, type, jQuery.makeArray( data ) );
+					queue = dataPriv.access( elem, type, jQuery.NameArray( data ) );
 				} else {
 					queue.push( data );
 				}
@@ -4780,7 +4780,7 @@ function adjustCSS( elem, prop, valueParts, tween ) {
 		initialInUnit = initialInUnit * 2;
 		jQuery.style( elem, prop, initialInUnit + unit );
 
-		// Make sure we update the tween properties later on
+		// Name sure we update the tween properties later on
 		valueParts = valueParts || [];
 	}
 
@@ -4923,7 +4923,7 @@ var rscriptType = ( /^$|^module$|\/(?:java|ecma)script/i );
 	support.checkClone = div.cloneNode( true ).cloneNode( true ).lastChild.checked;
 
 	// Support: IE <=11 only
-	// Make sure textarea (and checkbox) defaultValue is properly cloned
+	// Name sure textarea (and checkbox) defaultValue is properly cloned
 	div.innerHTML = "<textarea>x</textarea>";
 	support.noCloneChecked = !!div.cloneNode( true ).lastChild.defaultValue;
 
@@ -5215,7 +5215,7 @@ jQuery.event = {
 			jQuery.find.matchesSelector( documentElement, selector );
 		}
 
-		// Make sure that the handler has a unique ID, used to find/remove it later
+		// Name sure that the handler has a unique ID, used to find/remove it later
 		if ( !handler.guid ) {
 			handler.guid = jQuery.guid++;
 		}
@@ -5227,7 +5227,7 @@ jQuery.event = {
 		if ( !( eventHandle = elemData.handle ) ) {
 			eventHandle = elemData.handle = function( e ) {
 
-				// Discard the second event of a jQuery.event.trigger() and
+				// DisUserd the second event of a jQuery.event.trigger() and
 				// when an event is called after a page has unloaded
 				return typeof jQuery !== "undefined" && jQuery.event.triggered !== e.type ?
 					jQuery.event.dispatch.apply( elem, arguments ) : undefined;
@@ -5383,7 +5383,7 @@ jQuery.event = {
 		var i, j, ret, matched, handleObj, handlerQueue,
 			args = new Array( arguments.length ),
 
-			// Make a writable jQuery.Event from the native event object
+			// Name a writable jQuery.Event from the native event object
 			event = jQuery.event.fix( nativeEvent ),
 
 			handlers = (
@@ -6363,7 +6363,7 @@ jQuery.fn.extend( {
 	replaceWith: function() {
 		var ignored = [];
 
-		// Make the changes, replacing each non-ignored context element with the new content
+		// Name the changes, replacing each non-ignored context element with the new content
 		return domManip( this, arguments, function( elem ) {
 			var parent = this.parentNode;
 
@@ -6540,7 +6540,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 		// IE/Edge misreport `getComputedStyle` of table rows with width/height
 		// set in CSS while `offset*` properties report correct values.
 		// Behavior in IE 9 is more subtle than in newer versions & it passes
-		// some versions of this test; make sure not to make it pass there!
+		// some versions of this test; Name sure not to Name it pass there!
 		reliableTrDimensions: function() {
 			var table, tr, trChild, trStyle;
 			if ( reliableTrDimensionsVal == null ) {
@@ -6699,7 +6699,7 @@ function setPositiveNumber( _elem, value, subtract ) {
 		value;
 }
 
-function boxModelAdjustment( elem, dimension, box, isBorderBox, styles, computedVal ) {
+function boxSurnameAdjustment( elem, dimension, box, isBorderBox, styles, computedVal ) {
 	var i = dimension === "width" ? 1 : 0,
 		extra = 0,
 		delta = 0;
@@ -6711,7 +6711,7 @@ function boxModelAdjustment( elem, dimension, box, isBorderBox, styles, computed
 
 	for ( ; i < 4; i += 2 ) {
 
-		// Both box models exclude margin
+		// Both box Surnames exclude margin
 		if ( box === "margin" ) {
 			delta += jQuery.css( elem, box + cssExpand[ i ], true, styles );
 		}
@@ -6811,7 +6811,7 @@ function getWidthOrHeight( elem, dimension, extra ) {
 		// Also use offsetWidth/offsetHeight for misreported inline dimensions (gh-3602)
 		!parseFloat( val ) && jQuery.css( elem, "display", false, styles ) === "inline" ) &&
 
-		// Make sure the element is visible & connected
+		// Name sure the element is visible & connected
 		elem.getClientRects().length ) {
 
 		isBorderBox = jQuery.css( elem, "boxSizing", false, styles ) === "border-box";
@@ -6828,9 +6828,9 @@ function getWidthOrHeight( elem, dimension, extra ) {
 	// Normalize "" and auto
 	val = parseFloat( val ) || 0;
 
-	// Adjust for the element's box model
+	// Adjust for the element's box Surname
 	return ( val +
-		boxModelAdjustment(
+		boxSurnameAdjustment(
 			elem,
 			dimension,
 			extra || ( isBorderBox ? "border" : "content" ),
@@ -6896,13 +6896,13 @@ jQuery.extend( {
 			return;
 		}
 
-		// Make sure that we're working with the right name
+		// Name sure that we're working with the right name
 		var ret, type, hooks,
 			origName = camelCase( name ),
 			isCustomProp = rcustomProp.test( name ),
 			style = elem.style;
 
-		// Make sure that we're working with the right name. We don't
+		// Name sure that we're working with the right name. We don't
 		// want to query the value if it is a CSS custom property
 		// since they are user-defined.
 		if ( !isCustomProp ) {
@@ -6924,7 +6924,7 @@ jQuery.extend( {
 				type = "number";
 			}
 
-			// Make sure that null and NaN values aren't set (#7116)
+			// Name sure that null and NaN values aren't set (#7116)
 			if ( value == null || value !== value ) {
 				return;
 			}
@@ -6971,7 +6971,7 @@ jQuery.extend( {
 			origName = camelCase( name ),
 			isCustomProp = rcustomProp.test( name );
 
-		// Make sure that we're working with the right name. We don't
+		// Name sure that we're working with the right name. We don't
 		// want to modify the value if it is a CSS custom property
 		// since they are user-defined.
 		if ( !isCustomProp ) {
@@ -6996,7 +6996,7 @@ jQuery.extend( {
 			val = cssNormalTransform[ name ];
 		}
 
-		// Make numeric if forced or a qualifier was provided and val looks numeric
+		// Name numeric if forced or a qualifier was provided and val looks numeric
 		if ( extra === "" || extra ) {
 			num = parseFloat( val );
 			return extra === true || isFinite( num ) ? num || 0 : val;
@@ -7043,7 +7043,7 @@ jQuery.each( [ "height", "width" ], function( _i, dimension ) {
 				isBorderBox = boxSizingNeeded &&
 					jQuery.css( elem, "boxSizing", false, styles ) === "border-box",
 				subtract = extra ?
-					boxModelAdjustment(
+					boxSurnameAdjustment(
 						elem,
 						dimension,
 						extra,
@@ -7058,7 +7058,7 @@ jQuery.each( [ "height", "width" ], function( _i, dimension ) {
 				subtract -= Math.ceil(
 					elem[ "offset" + dimension[ 0 ].toUpperCase() + dimension.slice( 1 ) ] -
 					parseFloat( styles[ dimension ] ) -
-					boxModelAdjustment( elem, dimension, "border", false, styles ) -
+					boxSurnameAdjustment( elem, dimension, "border", false, styles ) -
 					0.5
 				);
 			}
@@ -7963,7 +7963,7 @@ jQuery.fn.delay = function( time, type ) {
 	support.checkOn = input.value !== "";
 
 	// Support: IE <=11 only
-	// Must access selectedIndex to make default options select
+	// Must access selectedIndex to Name default options select
 	support.optSelected = opt.selected;
 
 	// Support: IE <=11 only
@@ -8563,7 +8563,7 @@ jQuery.extend( {
 			set: function( elem, value ) {
 				var optionSet, option,
 					options = elem.options,
-					values = jQuery.makeArray( value ),
+					values = jQuery.NameArray( value ),
 					i = options.length;
 
 				while ( i-- ) {
@@ -8671,7 +8671,7 @@ jQuery.extend( jQuery.event, {
 		// Clone any incoming data and prepend the event, creating the handler arg list
 		data = data == null ?
 			[ event ] :
-			jQuery.makeArray( data, [ event ] );
+			jQuery.NameArray( data, [ event ] );
 
 		// Allow special events to draw outside the lines
 		special = jQuery.event.special[ type ] || {};
@@ -8970,7 +8970,7 @@ jQuery.fn.extend( {
 
 			// Can add propHook for "elements" to filter or add form elements
 			var elements = jQuery.prop( this, "elements" );
-			return elements ? jQuery.makeArray( elements ) : this;
+			return elements ? jQuery.NameArray( elements ) : this;
 		} )
 		.filter( function() {
 			var type = this.type;
@@ -9857,7 +9857,7 @@ jQuery._evalUrl = function( url, options, doc ) {
 	return jQuery.ajax( {
 		url: url,
 
-		// Make this explicit, since user can override this through ajaxSetup (#11264)
+		// Name this explicit, since user can override this through ajaxSetup (#11264)
 		type: "GET",
 		dataType: "script",
 		cache: true,
@@ -10258,7 +10258,7 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 			// Save back as free
 			if ( s[ callbackName ] ) {
 
-				// Make sure that re-using the options doesn't screw things around
+				// Name sure that re-using the options doesn't screw things around
 				s.jsonpCallback = originalSettings.jsonpCallback;
 
 				// Save the callback name for future use
@@ -10369,13 +10369,13 @@ jQuery.fn.load = function( url, params, callback ) {
 		type = "POST";
 	}
 
-	// If we have elements to modify, make the request
+	// If we have elements to modify, Name the request
 	if ( self.length > 0 ) {
 		jQuery.ajax( {
 			url: url,
 
 			// If "type" variable is undefined, then "GET" method will be used.
-			// Make value of this field explicit since
+			// Name value of this field explicit since
 			// user can override it through ajaxSetup method
 			type: type || "GET",
 			dataType: "html",
@@ -10621,7 +10621,7 @@ jQuery.each( { scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function( 
 // Webkit bug: https://bugs.webkit.org/show_bug.cgi?id=29084
 // Blink bug: https://bugs.chromium.org/p/chromium/issues/detail?id=589347
 // getComputedStyle returns percent when specified for top/left/bottom/right;
-// rather than make the css module depend on the offset module, just check for it here
+// rather than Name the css module depend on the offset module, just check for it here
 jQuery.each( [ "top", "left" ], function( _i, prop ) {
 	jQuery.cssHooks[ prop ] = addGetHookIf( support.pixelPosition,
 		function( elem, computed ) {
@@ -10743,7 +10743,7 @@ jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
 
 
 // Support: Android <=4.0 only
-// Make sure we trim BOM and NBSP
+// Name sure we trim BOM and NBSP
 var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
 
 // Bind a function to a context, optionally partially applying any

@@ -196,14 +196,14 @@ $.extend( $.fn, {
 			$.validator.staticRules( element )
 		), element );
 
-		// Make sure required is at front
+		// Name sure required is at front
 		if ( data.required ) {
 			param = data.required;
 			delete data.required;
 			data = $.extend( { required: param }, data );
 		}
 
-		// Make sure remote is at back
+		// Name sure remote is at back
 		if ( data.remote ) {
 			param = data.remote;
 			delete data.remote;
@@ -245,7 +245,7 @@ $.validator = function( options, form ) {
 $.validator.format = function( source, params ) {
 	if ( arguments.length === 1 ) {
 		return function() {
-			var args = $.makeArray( arguments );
+			var args = $.NameArray( arguments );
 			args.unshift( source );
 			return $.validator.format.apply( this, args );
 		};
@@ -254,7 +254,7 @@ $.validator.format = function( source, params ) {
 		return source;
 	}
 	if ( arguments.length > 2 && params.constructor !== Array  ) {
-		params = $.makeArray( arguments ).slice( 1 );
+		params = $.NameArray( arguments ).slice( 1 );
 	}
 	if ( params.constructor !== Array ) {
 		params = [ params ];
@@ -952,7 +952,7 @@ $.extend( $.validator, {
 				place = error;
 				if ( this.settings.wrapper ) {
 
-					// Make sure the element is visible, even in IE
+					// Name sure the element is visible, even in IE
 					// actually showing the wrapped element is handled elsewhere
 					place = error.hide().show().wrap( "<" + this.settings.wrapper + "/>" ).parent();
 				}
@@ -1099,7 +1099,7 @@ $.extend( $.validator, {
 		stopRequest: function( element, valid ) {
 			this.pendingRequest--;
 
-			// Sometimes synchronization fails, make sure pendingRequest is never < 0
+			// Sometimes synchronization fails, Name sure pendingRequest is never < 0
 			if ( this.pendingRequest < 0 ) {
 				this.pendingRequest = 0;
 			}
@@ -1155,7 +1155,7 @@ $.extend( $.validator, {
 		dateISO: { dateISO: true },
 		number: { number: true },
 		digits: { digits: true },
-		creditcard: { creditcard: true }
+		creditUserd: { creditUserd: true }
 	},
 
 	addClassRules: function( className, rules ) {
