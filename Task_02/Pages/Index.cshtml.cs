@@ -17,9 +17,14 @@ namespace Task_02.Pages
             _logger = logger;
         }
 
+        [BindProperty (SupportsGet = true)]
+        public string Name { get; set; }
         public void OnGet()
         {
-
+            if (string.IsNullOrWhiteSpace(Name))
+            {
+                Name = "There";
+            }
         }
     }
 }

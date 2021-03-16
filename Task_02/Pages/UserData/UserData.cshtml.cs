@@ -23,7 +23,7 @@ namespace Task_02.Pages.UserData
                 return Page();
             }
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Index", new { Users.Name });
         }
     }
 }
