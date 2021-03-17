@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Task_02.FileManagerService;
+using Task_02.FileManagerServices;
 
 namespace Task_02
 {
@@ -26,8 +26,9 @@ namespace Task_02
         {
             services.AddRazorPages();
 
-            services.AddMvc();
-            services.AddTransient<IFileManager, FileManager>();
+            // add FileManager to the collection of service - publishing the service
+            services.AddTransient<FileManagerService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

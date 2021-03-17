@@ -4,24 +4,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Task_02.FileManagerService;
+using Task_02.FileManagerServices;
 using Task_02.Models;
 
 namespace Task_02.Pages.UserData
 {
     public class UserDataModel : PageModel
     {
+        public FileManagerService UserDataService;
+        public IEnumerable<User> Users { get; private set; } // setting to private set to not allow anyone to change the data
 
-        private readonly IFileManager _fileManager;
-
-        public UserDataModel(IFileManager fileManager)
+        public UserDataModel( FileManagerService userDataService)
         {
-            _fileManager = fileManager;
+            UserDataService = userDataService; // initialize userData service -- not null
         }
 
-        public JsonResult OnGet()
+        public void OnGet()
         {
-            return new JsonResult(_fileManager.ReadAll());
+            Users = UserDataService.GetUsers();
         }
         
     }

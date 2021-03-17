@@ -2,25 +2,10 @@
 @model Task_02.Pages.UserData.UserDataModel
 @{
     ViewData["Title"] = "User Data";
-
+}
     <h1> User Data</h1>
 
-    <ul id="users-list"></ul>
-
-    @section scripts{
-        <script type="text/javascript">
-            $(function () {
-                $.get('/UserData/').done(function (Users) {
-                    $.each(Users, function (i, Users) {
-                        var item = `<li>
-                                    <strong>${Users.Id} ${Users.Name}</strong>
-                                    (£${Users.Surname})</li>`;
-                        $('#users-list').append(item);
-                    });
-                });
-            });
-        </script>
-    }
+@foreach(var user in Model.Users) 
+{
+    <h2> @user.Name</h2>
 }
-
-

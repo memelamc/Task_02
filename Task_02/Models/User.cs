@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Task_02.Models
@@ -13,5 +14,7 @@ namespace Task_02.Models
         public string EmailAddress { get; set; }
         public string Gender { get; set; }
         public string IpAddress { get; set; }
+
+        public override string ToString() => JsonSerializer.Serialize<User>(this);
     }
 }
